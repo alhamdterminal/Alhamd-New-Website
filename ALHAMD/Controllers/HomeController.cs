@@ -97,10 +97,10 @@ namespace ALHAMD.Controllers
                     toEmail = "operations.alert@aictpk.com";
                 }
 
-                if (form.Topic == "Finance")
-                {
-                    toEmail = "finance@aictpk.com";
-                }
+                //if (form.Topic == "Finance")
+                //{
+                //    toEmail = "finance@aictpk.com";
+                //}
 
 
                 

@@ -8,7 +8,8 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="~/fav.ico" rel="icon">
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,7 +171,11 @@
                 @* <div class="nav-item dropdown">  *@
 @*                 <a asp-action="ContainerInquiry" asp-controller="InquiryPortal" style="color:#c9302c; font-weight:700;" class="nav-item nav-link  @(IsActive("InquiryPortal") ? "active" : "")" ><i class="fa fa-plus me-3"></i>INQUIRY PORTAL</a>
  *@
-                <a href="http://inquiry.aictpk.com/" target="_blank"  style="color:#c9302c; font-weight:700;" class="nav-item nav-link"><i class="fa fa-plus me-3"></i>INQUIRY PORTAL</a>
+
+
+               @*  Inquiry Portal *@
+               @*  <a href="http://inquiry.aictpk.com/" target="_blank"  style="color:#c9302c; font-weight:700;" class="nav-item nav-link"><i class="fa fa-plus me-3"></i>INQUIRY PORTAL</a> *@
+                <a asp-action="InquiryPortal" asp-controller="Home" style="color:#c9302c; font-weight:700;" class="nav-item nav-link"><i class="fa fa-plus me-3"></i>INQUIRY PORTAL</a>
 
             
                 @* <div
