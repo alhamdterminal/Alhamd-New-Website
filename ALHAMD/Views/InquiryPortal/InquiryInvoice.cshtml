@@ -1,0 +1,429 @@
+﻿@{
+
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: aliceblue;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    h2 {
+        color: #fff;
+        text-align: center;
+        margin: 20px 0;
+        font-size: 36px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        background: #c9302c;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .form-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    }
+
+    .radio-group {
+        margin-bottom: 20px;
+       
+    }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+            font-size: 18px;
+            margin: 5px 0;
+            cursor: pointer;
+            color: #333;
+            position: relative;
+        }
+
+        .radio-group input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+            .radio-group input[type="radio"] + .custom-radio {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 24px;
+                height: 24px;
+                border: 2px solid #c9302c;
+                border-radius: 50%;
+                background: #ffffff;
+                transition: background 0.3s, border-color 0.3s;
+            }
+
+            .radio-group input[type="radio"]:checked + .custom-radio {
+                background: #c9302c;
+                border-color: #c9302c;
+            }
+
+        .radio-group .custom-radio::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ffffff;
+            transition: background 0.3s;
+        }
+
+        .radio-group input[type="radio"]:checked + .custom-radio::after {
+            background: #ffffff;
+        }
+
+    .form-section {
+        margin-bottom: 25px;
+    }
+
+        .form-section label {
+            display: block;
+            margin: 10px 0;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .form-section input[type="text"],
+        .form-section input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0;
+            border: 1px solid #d3d3d3;
+            border-radius: 8px;
+            font-size: 16px;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: #ffffff;
+        }
+
+            .form-section input[type="text"]:focus,
+            .form-section input[type="date"]:focus {
+                border-color: #c9302c;
+                box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+                outline: none;
+            }
+
+        .form-section button {
+            padding: 12px 28px;
+            background: linear-gradient(45deg, #c9302c, #c9302c);
+            color: #c9302c;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+            .form-section button::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transition: width 0.3s, height 0.3s;
+                transform: translate(-50%, -50%);
+            }
+
+            .form-section button:hover::before {
+                width: 300%;
+                height: 300%;
+            }
+
+            .form-section button:hover {
+                background: linear-gradient(45deg, #c9302c, #c9302c);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            .form-section button:active {
+                background: linear-gradient(45deg, #c9302c, #c9302c);
+                transform: translateY(0);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+    .hidden {
+        display: none;
+    }
+
+    .form-note {
+        font-size: 14px;
+        color: #7f8c8d;
+        margin-top: -5px;
+        margin-bottom: 10px;
+    }
+
+    .buttonSearch {
+        background-color: #c9302c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .inquiry-icon {
+        font-size: 40px;
+        color: #c9302c;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+        .inquiry-icon:hover {
+            color: #c9302c;
+        }
+
+    .swal2-confirm.custom-button {
+        background-color: #c9302c;
+        color: #ffffff;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+<!-- About Start -->
+<div class="container overflow-hidden py-1 px-lg-0">
+    <div class="">
+        <div class="row g-5 mx-lg-0 mt-0">
+            <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="position-relative h-100">
+
+                    <h4 class="text-secondary text-uppercase "> <i class="fas fa-question-circle inquiry-icon" title="Submit an inquiry"></i> Invoice Inquiry</h4>
+                    <h1 class="mb-1">Welcome To AICT Inquiry Portal</h1>
+                    <h5 style="color:black;" class="mb-1">Unlock all the essential Invoice details effortlessly—and get real-time updates and information instantly!</h5>
+
+                </div>
+            </div>
+            <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+
+
+                <br />
+                <br />
+                <br />
+                <div class="form-container">
+                    <h2>Invoice Inquiry</h2>
+                    <hr />
+                    <h3 style="text-align:left;font-weight:bold;">Select Container Type:</h3>
+                    <!-- Main Options -->
+                    <div class="radio-group">
+                        <label for="cy">
+                            <input type="radio" id="cy" name="container" value="cy" onclick="toggleMainOptions()">
+                            <div class="custom-radio"></div>
+                            <span style="margin-left:10px; font-weight:bold;">CY</span>
+                        </label>
+                        <label for="cfs">
+                            <input type="radio" id="cfs" name="container" value="cfs" onclick="toggleMainOptions()">
+                            <div class="custom-radio"></div>
+                            <span style="margin-left:10px;font-weight:bold;">CFS</span>
+                        </label>
+                    </div>
+
+                    <!-- CY Fields -->
+                    <div id="cy-fields" class="hidden">
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="cy-inquiry" value="bl" onclick="toggleInquiryOptions()">
+                                <div class="custom-radio"></div>
+                                <span style="font-weight:bold;"> Inquiry through BL No</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="cy-inquiry" value="vir" onclick="toggleInquiryOptions()">
+                                <div class="custom-radio"></div>
+                                <span style="font-weight:bold;">Inquiry through Vir No</span>
+                            </label>
+                        </div>
+                        <div id="CYsearchViaBlNo" class="hidden">
+                            <form id="bl-form" asp-action="InquiryInvoiceCYviaBLNo" asp-controller="InquiryPortal" method="post" onsubmit="return showAlert(event, 'Your updated amount: 0.000')">
+                                <div class="form-section">
+                                    <label style="font-weight:600;" for="bl-no-cy">Enter Your BL No:</label>
+                                    <input type="text" id="bl-no-cy" name="BLNo" placeholder="BL No" required>
+                                    <div class="form-note">Example: BL123456</div>
+
+                                </div>
+                                <div class="form-section">
+                                    <label style="font-weight:600;" for="date-cy">Select Date:</label>
+                                    <input type="date" id="date-cy" name="Date" required>
+                                </div>
+                                <div style="text-align: left;">
+                                    <button class="buttonSearch" type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="CYsearchViaVirNo" class="hidden">
+                            <form asp-action="InquiryInvoiceCYviaVirNo" asp-controller="InquiryPortal" method="post" onsubmit="return showAlert(event, 'Your updated amount: 0.000')">
+                                <div class="form-section">
+                                    <label style="font-weight:600;" for="vir-no">Enter Your Vir No / IGM No:</label>
+                                    <input type="text" id="vir-no" name="VirNo" placeholder="Vir No / IGM No" required>
+                                    <div class="form-note">Example: KPPI-0025-12982...</div>
+                                    <label style="font-weight:600;" for="index-no">Enter Your Index No:</label>
+                                    <input type="text" id="index-no" name="IndexNo" placeholder="Index No" required>
+                                </div>
+                                <div class="form-section">
+                                    <label style="font-weight:600;" for="date-cy">Select Date:</label>
+                                    <input type="date" id="date-cy" name="Date" required>
+                                </div>
+                                <div style="text-align: left;">
+                                    <button class="buttonSearch" type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- CFS Fields -->
+                    <div id="cfs-fields" class="hidden">
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="cfs-inquiry" value="bl" onclick="toggleInquiryOptions()">
+                                <div class="custom-radio"></div>
+                                <span style="font-weight:bold;">Inquiry through BL No</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="cfs-inquiry" value="vir" onclick="toggleInquiryOptions()">
+                                <div class="custom-radio"></div>
+                                <span style="font-weight:bold;">Inquiry through Vir No</span>
+                            </label>
+                        </div>
+                        <div id="CFSsearchViaBlNo" class="hidden">
+                            <form asp-action="InquiryInvoiceCFSviaBLNo" asp-controller="InquiryPortal" method="post" onsubmit="return showAlert(event, 'Your updated amount: 0.000')">
+                                <div class="form-section">
+                                    <label style="font-weight:600;" for="bl-no-cfs">Enter Your BL No:</label>
+                                    <input type="text" id="bl-no-cfs" name="BLNo" placeholder="BL No" required>
+                                    <div class="form-note">Example: BL123456</div>
+                                    <label style="font-weight:600;" for="cbm-cfs">Enter Your CBM:</label>
+                                    <input type="text" id="cbm-cfs" name="CBM" placeholder="CBM" required>
+                                </div>
+                                <div class="form-section">
+                                    <label style="font-weight:600;" for="date-cfs">Select Date:</label>
+                                    <input type="date" id="date-cfs" name="Date" required>
+                                </div>
+                                <div style="text-align: left;">
+                                    <button class="buttonSearch" type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="CFSsearchViaVirNo" class="hidden">
+                            <form asp-action="InquiryInvoiceCFSviaVirNo" asp-controller="InquiryPortal" method="post" onsubmit="return showAlert(event, 'Your updated amount: 0.000')">
+                                <div class="form-section">
+                                    <label style="font-weight:600;" for="vir-no-cfs">Enter Your Vir No / IGM No:</label>
+                                    <input type="text" id="vir-no-cfs" name="VirNo" placeholder="Vir No / IGM No" required>
+                                    <div class="form-note">Example: KPPI-0025-12982...</div>
+                                    <label style="font-weight:600;" for="index-no-cfs">Enter Your Index No:</label>
+                                    <input type="text" id="index-no-cfs" name="IndexNo" placeholder="Index No" required>
+                                    <label style="font-weight:600;" for="cbm-cfs">Enter Your CBM:</label>
+                                    <input type="text" id="cbm-cfs" name="CBM" placeholder="CBM">
+                                </div>
+                                <div class="form-section">
+                                    <label style="font-weight:600;" for="date-cfs">Select Date:</label>
+                                    <input type="date" id="date-cfs" name="Date" required>
+                                </div>
+                                <div style="text-align: left;">
+                                    <button class="buttonSearch" type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function toggleMainOptions() {
+        const cyFields = document.getElementById('cy-fields');
+        const cfsFields = document.getElementById('cfs-fields');
+        const selectedContainer = document.querySelector('input[name="container"]:checked');
+
+        if (selectedContainer) {
+            if (selectedContainer.value === 'cy') {
+                cyFields.classList.remove('hidden');
+                cfsFields.classList.add('hidden');
+            } else if (selectedContainer.value === 'cfs') {
+                cyFields.classList.add('hidden');
+                cfsFields.classList.remove('hidden');
+            }
+            toggleInquiryOptions();
+        }
+    }
+
+    function toggleInquiryOptions() {
+        const cyInquiry = document.querySelector('input[name="cy-inquiry"]:checked');
+        const cfsInquiry = document.querySelector('input[name="cfs-inquiry"]:checked');
+        const cyBlNo = document.getElementById('CYsearchViaBlNo');
+        const cyVirNo = document.getElementById('CYsearchViaVirNo');
+        const cfsBlNo = document.getElementById('CFSsearchViaBlNo');
+        const cfsVirNo = document.getElementById('CFSsearchViaVirNo');
+
+        // Reset visibility
+        cyBlNo.classList.add('hidden');
+        cyVirNo.classList.add('hidden');
+        cfsBlNo.classList.add('hidden');
+        cfsVirNo.classList.add('hidden');
+
+        if (cyInquiry) {
+            if (cyInquiry.value === 'bl') {
+                cyBlNo.classList.remove('hidden');
+            } else if (cyInquiry.value === 'vir') {
+                cyVirNo.classList.remove('hidden');
+            }
+        }
+
+        if (cfsInquiry) {
+            if (cfsInquiry.value === 'bl') {
+                cfsBlNo.classList.remove('hidden');
+            } else if (cfsInquiry.value === 'vir') {
+                cfsVirNo.classList.remove('hidden');
+            }
+        }
+    }
+
+    function showAlert(event, message) {
+        event.preventDefault(); // Prevent the default form submission
+        Swal.fire({
+            icon: 'info',
+            title: 'Search Results',
+            text: message,
+            confirmButtonText: 'OK',
+            customClass: {
+                confirmButton: 'custom-button'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Proceed with the form submission
+                event.target.submit();
+            }
+        });
+        return false; // Prevent the form from submitting immediately
+    }
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- About End -->

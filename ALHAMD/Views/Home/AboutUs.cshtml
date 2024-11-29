@@ -1,0 +1,672 @@
+﻿@{
+
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<style>
+    /* Custom CSS */
+    .services-section {
+        padding: 60px 0;
+        background-color: #ffffff;
+    }
+
+        .services-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #003049;
+        }
+
+    .service-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+        .service-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+    .service-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    .service-icon {
+        background-color: #c9302c;
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+        .service-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+    .service-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: #ffffff;
+    }
+
+    .service-text {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    .service-arrow {
+        font-size: 20px;
+        align-self: flex-end;
+    }
+
+    /* Specific adjustments */
+    .service-card:nth-child(2) .service-overlay,
+    .service-card:nth-child(3) .service-overlay,
+    .service-card:nth-child(4) .service-overlay,
+    .service-card:nth-child(5) .service-overlay,
+    .service-card:nth-child(6) .service-overlay {
+        background: none;
+        color: #ffffff;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .service-card:nth-child(2) .service-title,
+    .service-card:nth-child(3) .service-title,
+    .service-card:nth-child(4) .service-title,
+    .service-card:nth-child(5) .service-title,
+    .service-card:nth-child(6) .service-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    /* Custom CSS */
+    .facts-section {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 60px 0;
+        background-color: #003049;
+        color: white;
+    }
+
+    .facts-text {
+        flex: 1;
+        padding: 40px;
+        background-color: #00223d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+    }
+
+        .facts-text h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #c9302c;
+        }
+
+        .facts-text h3 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .facts-text ul {
+            list-style: none;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+            .facts-text ul li {
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+            }
+
+                .facts-text ul li i {
+                    margin-right: 10px;
+                    color: #c9302c;
+                }
+
+    .facts-info-box {
+        background-color: #c9302c;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: white;
+        position: relative;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .fact-item {
+        flex: 0 0 45%;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+        .fact-item i {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+    .fact-value {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .fact-description {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .contact-info {
+        flex: 0 0 100%;
+        text-align: center;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #ffffff;
+    }
+
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .contact-info a {
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+    .facts-image {
+        flex: 1;
+        background-image: url('/themeimages/trucks.webp'); /* Ensure this path is correct */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .trusted-section {
+        background-color: #003049;
+        padding: 60px 0;
+        color: white;
+        text-align: center;
+    }
+
+        .trusted-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .trusted-section .trusted-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+    .trusted-item {
+        flex: 1 1 200px;
+        text-align: center;
+    }
+
+        .trusted-item i {
+            font-size: 40px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .trusted-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .trusted-item p {
+            font-size: 16px;
+        }
+
+    .trusted-image {
+        max-width: 100%;
+        margin: 0 auto 40px;
+    }
+
+    @@media (max-width: 768px) {
+        .facts-section {
+            flex-direction: column;
+        }
+
+        .facts-text, .facts-image {
+            flex: 1 1 100%;
+            width: 100%;
+        }
+
+        .facts-text {
+            padding: 20px;
+        }
+
+        .facts-info-box {
+            width: 100%;
+            position: static;
+            margin-top: 20px;
+            transform: none;
+        }
+
+        .fact-item {
+            flex: 0 0 100%;
+        }
+
+        .trusted-section .trusted-stats {
+            flex-direction: column;
+        }
+
+        .trusted-item {
+            margin-bottom: 30px;
+        }
+    }
+
+    /* Custom CSS */
+
+    .priorities-section {
+        padding: 60px 0;
+        background-color: #ffffff;
+        color: #003049;
+        text-align: center;
+    }
+
+        .priorities-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+    .priority-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .priority-card {
+        flex: 1 1 300px;
+        background-color: #ffffff;
+        border: 1px solid #c9302c;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: left;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .priority-card h3 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #c9302c;
+        }
+
+        .priority-card p {
+            font-size: 16px;
+            line-height: 1.9;
+            margin: 20px;
+            color: #333;
+        }
+
+    .contact-section {
+        padding: 60px 0;
+        background-color: #f9f9f9;
+        color: #333;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .contact-text {
+        flex: 1;
+        max-width: 100%;
+        color: black;
+    }
+
+        .contact-text h2 {
+            color: black;
+        }
+
+        .contact-text h3 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .contact-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+    .contact-info {
+        font-size: 18px;
+        font-weight: bold;
+        color: #c9302c;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+        .contact-info i {
+            margin-right: 10px;
+        }
+
+    .contact-form {
+        flex: 1;
+        max-width: 100%;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #c9302c;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .contact-form button:hover {
+                background-color: #c9302c;
+            }
+
+    @@media (max-width: 768px) {
+        .priority-cards {
+            flex-direction: column;
+        }
+
+        .contact-section {
+            flex-direction: column;
+        }
+    }
+
+    .more-services {
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+        .more-services h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #003366;
+        }
+
+    .service-cards {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .service-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 300px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background-color: #c9302c;
+            color: white;
+            h3
+
+    {
+        color: white;
+    }
+
+    }
+
+    .service-card .icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+
+        .service-card .icon i {
+            color: #fff;
+            font-size: 28px;
+        }
+
+    .service-card h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #003366;
+    }
+
+    .service-card p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .contact-section {
+        padding: 60px 80px;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    .contact-text {
+        flex: 1;
+    }
+
+        .contact-text h3 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #c9302c;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+            .contact-text h3::before {
+                content: '';
+                width: 50px;
+                height: 2px;
+                background-color: #c9302c;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+        .contact-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+    .contact-info {
+        font-size: 18px;
+        font-weight: bold;
+        color: #c9302c;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+    .contact-form {
+        flex: 1;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #c9302c;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .contact-form button:hover {
+                background-color: #c9302c;
+            }
+
+    @@media (max-width: 768px) {
+        .contact-section {
+            flex-direction: column;
+            padding: 30px 20px;
+        }
+
+        .contact-text {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            width: 100%;
+        }
+    }
+</style>
+
+<!-- About Start -->
+<div class="container overflow-hidden py-5 px-lg-0">
+    <div class="container about py-5 px-lg-0">
+        <div class="row g-5 mx-lg-0">
+            <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+
+                    <h6 class="text-secondary text-uppercase mb-3"> <i class="fa fa-minus fa-1x  text-primary"></i> About Us</h6>
+                    <h1 class="mb-5">Where Global Trade Meets Seamless Efficiency</h1>
+                    <img class="position-absolute img-fluid w-100 h-100" src="/themeimages/about.webp" style="object-fit: cover;" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+                <br />
+                <br />
+                <br />
+
+
+                <p class="mb-5 mt-5" style="text-align:justify">
+                    <i class="fa fa-quote-left fa-3x text-primary mb-3"></i>
+                    Step into the world of Al-Hamd International Container Terminal (AICT), Pakistan's largest off-dock terminal, your go-to hub for smooth global trade. Positioned strategically near Karachi Port in Karachi, Pakistan, AICT is more than just a common user Pakistan’s largest off-dock container freight station. It is a vital connection point for businesses worldwide. Think state-of-the-art facilities buzzing with activity, where we specialize in handling import and export CY and CFS containers with precision. But that's not all – we are experts in managing various cargo types, from spacious sheds to IMCO goods.
+                    <br />
+                    <br />
+                    At AICT, we are committed to ensuring the smooth flow of goods, supporting businesses in navigating the complexities of global trade with efficiency and reliability. Whether it's storage, handling, or logistical solutions, AICT is equipped to meet your needs, making us an indispensable partner in your supply chain.
+                </p>
+                <div class="row g-4 mb-5">
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                        <i class="fa fa-globe fa-3x text-primary mb-3"></i>
+                        <h5>Global Coverage</h5>
+                        <p class="m-0">Experience seamless connectivity across the world with our extensive network. No matter where you are, stay in touch with ease and reliability.</p>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                        <i class="fa fa-shipping-fast fa-3x text-primary mb-3"></i>
+                        <h5>On Time Delivery</h5>
+                        <p class="m-0">Count on us for punctual and dependable delivery every time. We ensure your shipments arrive exactly when promised, with no delays.</p>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                        <i class="fa fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                        <h5>Real Time Tracking</h5>
+                        <p class="m-0">Access live tracking updates directly through our user-friendly inquiry portal. Stay informed with real-time insights from dispatch to delivery.</p>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                        <i class="fa fa-headset fa-3x text-primary mb-3"></i>
+                        <h5>24/7 Online Support</h5>
+                        <p class="m-0">Get round-the-clock assistance with our 24/7 online support. We're here to help you anytime, day or night, with prompt and reliable service.</p>
+                    </div>
+                </div>
+                <a href="" class="btn btn-primary py-3 px-5 rounded-pill">Explore More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+
+
+
+
+
+

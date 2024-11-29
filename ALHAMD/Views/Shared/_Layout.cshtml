@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="utf-8">
+    <title>AICT</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+
+    <style>
+       
+         .navbar-upper {
+            background-color: #002D42;
+            padding: 10px 0;
+            color: white;
+            
+           
+        }
+
+          
+            .navbar-upper .contact-info2 {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+                .navbar-upper .contact-info2 i {
+                    margin-right: 5px;
+                }
+
+                .navbar-upper .contact-info2 a {
+                    color: white;
+                    margin-left: 10px;
+                    text-decoration: none;
+                    font-size: 12px;
+                }
+
+                    .navbar-upper .contact-info2 a:hover {
+                        color: #FF0000;
+                    }
+
+         .uper{
+               text-align:right; 
+               color:white;
+               
+              
+         }
+
+       
+</style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '506285648890481');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=506285648890481&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+    </div>
+  
+        
+        <div>
+        <div class="navbar-upper ">
+        <div class="container">
+            <div class="contact-info2">
+                <a href="tel:+92021111000176"><i class="fas fa-phone"></i> +92 (021)-111-000-176</a>
+                <a href="mailto:helpdesk@aictpk.com"><i class="fas fa-envelope"></i> helpdesk@aictpk.com</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
+   
+    
+    <!-- Navbar Start -->
+    <nav" class="navbar navbar-expand-lg bg-white navbar-light shadow  border-primary sticky-top p-0">
+         <a asp-action="Index" class="navbar-brand bg-primary d-flex align-items-center  px-lg-5 ">
+
+
+
+
+
+            <img src="/img/finalLogo2.jpg" width="80" height="80" href="index.html" asp.action="index.html" />
+        </a>  
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <!-- Home Link -->
+                <a asp-action="Index" asp-controller="Home" class="nav-item nav-link @(IsActive("Index") ? "active" : "")">Home</a>
+
+                <!-- About Us Link -->
+                <a asp-action="AboutUs" asp-controller="Home" class="nav-item nav-link @(IsActive("AboutUs") ? "active" : "")">About Us</a>
+
+                <!-- Services Link -->
+                <a asp-action="Services" asp-controller="Home" class="nav-item nav-link @(IsActive("Services") ? "active" : "")">Services</a>
+                <a asp-action="QualityPolicy" asp-controller="Home" class="nav-item nav-link @(IsActive("QualityPolicy") ? "active" : "")">Quality Policy</a>
+                <a asp-action="HR" asp-controller="Home" class="nav-item nav-link @(IsActive("Career") ? "active" : "")">Career</a>
+                <a asp-action="Gallery" asp-controller="Home" class="nav-item nav-link @(IsActive("Gallery") ? "active" : "")">Gallery</a>
+                <a asp-action="Location" asp-controller="Home" class="nav-item nav-link @(IsActive("Location") ? "active" : "")">Location</a>
+                
+                
+
+
+                <!-- Pages Dropdown -->
+               @*  <div class="nav-item dropdown">
+                    <a asp-action="Pages" class="nav-link dropdown-toggle @(IsActive("Pages") ? "active" : "")" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <!-- Dropdown Items -->
+                      @*   <a asp-action="Location" class="dropdown-item @(IsActive("Location") ? "active" : "")">Location</a> *@
+   @*                      <a asp-action="Map" class="dropdown-item @(IsActive("Map") ? "active" : "")">Location</a>
+                        <a asp-action="Gallery" class="dropdown-item @(IsActive("Gallery") ? "active" : "")">Gallery</a>
+                        <a asp-action="QualityPolicy" class="dropdown-item @(IsActive("QualityPolicy") ? "active" : "")">Quality Policy</a>
+                     
+                    </div>
+                </div>
+ *@ 
+                <!-- Contact Us Link -->
+                <a asp-action="ContactUs" asp-controller="Home" class="nav-item nav-link @(IsActive("ContactUs") ? "active" : "")">Contact Us</a>
+               
+                <!-- Inquiry Portal Link -->
+                @* <div class="nav-item dropdown">  *@
+@*                 <a asp-action="ContainerInquiry" asp-controller="InquiryPortal" style="color:#c9302c; font-weight:700;" class="nav-item nav-link  @(IsActive("InquiryPortal") ? "active" : "")" ><i class="fa fa-plus me-3"></i>INQUIRY PORTAL</a>
+ *@
+                <a href="http://inquiry.aictpk.com/" target="_blank"  style="color:#c9302c; font-weight:700;" class="nav-item nav-link"><i class="fa fa-plus me-3"></i>INQUIRY PORTAL</a>
+
+            
+                @* <div
+                         class="dropdown-menu fade-up m-0">
+                        <a asp-action="ContainerInquiry" asp-controller="InquiryPortal" style="color:#003049; font-weight:900;" class="dropdown-item @(IsActive("ContainerInquiry") ? "active" : "")">CONTAINER INQUIRY</a> *@
+                        @* <a asp-action="InquiryInvoice" asp-controller="InquiryPortal" style="color:#003049;font-weight:900;" class="dropdown-item @(IsActive("InquiryPortalByBLNo") ? "active" : "")">INVOICE INQUIRY</a>
+                        <a asp-action="ContainerInquiryTry" asp-controller="InquiryPortal" class="dropdown-item @(IsActive("ContainerInquiryTry") ? "active" : "")">Try DEMO</a>  *@
+ 
+           @*  </div> 
+             </div> *@
+            </div>
+        </div>
+        </div>
+       
+
+    </nav>
+   
+        @functions {
+            private bool IsActive(string actionName)
+            {
+                var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+                return string.Equals(currentAction, actionName, StringComparison.OrdinalIgnoreCase);
+            }
+        }
+    <!-- Navbar End -->
+    
+@*     Main Body Start *@
+
+@RenderBody()
+@* Main Body End *@
+    <!-- Footer Start -->
+    <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class=" mb-4">Address</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-2"></i>Plot No. 28 O & L Trans Liyari Quarters, Hawksbay Road, Opp. New Truck Stand, Near PAF Base Masroor, Karachi-Pakistan.</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+92 (021)-111-000-176" style="color:white"> +92 (021)-111-000-176</a></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:helpdesk@aictpk.com" style="color:white"> helpdesk@aictpk.com </a></p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class=" mb-4">Services</h4>
+                        <a class="btn btn-link" asp-action="Services" asp-controller="Home">Storage</a>
+                        <a class="btn btn-link" asp-action="Services" asp-controller="Home">Cargo Transports</a>
+                        <a class="btn btn-link" asp-action="Services" asp-controller="Home">Ware Housing</a>
+                        <a class="btn btn-link" asp-action="Services" asp-controller="Home">Empty Yard</a>
+                        <a class="btn btn-link" asp-action="Services" asp-controller="Home">Customs Clearance</a>
+                        <a class="btn btn-link" asp-action="Services" asp-controller="Home">Warehouse Solutions</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class=" mb-4">Quick Links</h4>
+                        <a class="btn btn-link" asp-action="AboutUs" asp-controller="Home">About Us</a>
+                        <a class="btn btn-link" asp-action="Services" asp-controller="Home">Our Services</a>
+                        <a class="btn btn-link" asp-action="QualityPolicy" asp-controller="Home">Quality Policy</a>
+                        <a class="btn btn-link" asp-action="HR" asp-controller="Home">Careers</a>
+                        <a class="btn btn-link" asp-action="Gallery" asp-controller="Home">Gallery</a>
+                        <a class="btn btn-link" asp-action="Location" asp-controller="Home">Location</a>
+                        <a class="btn btn-link" asp-action="ContactUs" asp-controller="Home">Contact Us</a>
+                        <a class="btn btn-link" onclick="showDetails()">Speak Out</a>
+
+
+                        
+                </div>
+                @* <div class="col-lg-3 col-md-6">
+                    <h4 class=" mb-4">Newsletter</h4>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div> *@
+            </div>
+        </div>
+           @*  <div class="container">
+                <h4 class=" mb-4">Speak up</h4>
+                <p class="mb-2">We encourage you to come forward and share / identify any wrongdoing/illegal activity at AICT.</p>
+                <p class="mb-2">We will ensure that the confidentiality of the complainant is maintained and unbiased investigations are carried out.</p>
+                <p class="mb-2">Email us at <a href="mailto:jobs@aictpk.com" style="color: #027EB5;">speakout@aictpk.com</a></p>
+
+            </div> *@
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0 text-white">
+                        &copy; <a href="http://www.aictpakistan.com/" target="_blank"> Al-Hamd International Container Terminal</a>
+                        <br />
+                        <a>All Rights Reserved.</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Back to Top -->
+     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a> 
+        
+
+     
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/counterup/counterup.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+    <script>
+            function showDetails() {
+                let contentHtml;
+
+                contentHtml = `
+                   
+                    <p class="mb-2">We encourage you to come forward and share/identify any wrongdoing or illegal activity at AICT.</p>
+                    <p class="mb-2">We will ensure that the confidentiality of the complainant is maintained and unbiased investigations are carried out.</p>
+                    <p class="mb-2">Email us at <a href="mailto:speakout@aictpk.com" style="color: #027EB5;">speakout@aictpk.com</a></p>
+                `;
+
+                Swal.fire({
+                    title: 'Speak Out',
+                    html: contentHtml,
+                    width: 600,
+                    padding: '20px',
+                    confirmButtonText: 'Close',
+                    confirmButtonColor: '#003366', // Set button color to blue
+                    showCloseButton: true,
+                    customClass: {
+                        popup: 'swal2-popup',
+                        content: 'swal2-content',
+                        confirmButton: 'swal2-confirm'
+                    },
+                    didOpen: () => {
+                        const popup = document.querySelector('.swal2-popup');
+                        popup.style.backgroundColor = '#f0f0f0'; // Set popup background color to gray
+                    }
+                });
+            }
+            
+    </script>
+</body>
+
+</html>

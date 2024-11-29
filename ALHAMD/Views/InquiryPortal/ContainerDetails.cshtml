@@ -1,0 +1,191 @@
+﻿  @model IEnumerable<ALHAMD.Models.ContainerIndex>
+@{
+    ViewBag.Title = "Inquiry Portal";
+    var latestInvoiceDate = ViewBag.LatestInvoiceDate as DateOnly?;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry Portal</title>
+
+    <style>
+        /* Existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aliceblue;
+            margin: 0;
+            padding: 0;
+            background-image: url('/img/backgroundimage4.jpg');
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 10px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        .table-wrapper {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-header {
+            background-color: #c9302c;
+            color: white;
+            padding: 10px 15px;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .table th, .table td {
+                padding: 15px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #c9302c;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .table td {
+                background-color: #f9f9f9;
+                text-align: center;
+            }
+
+        .no-data-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            text-align: center;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #c9302c;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .button:hover {
+                background-color: #b92c2c;
+            }
+
+        .last-updated {
+            text-align: center;
+            color: #ff8800;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="error-message">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+
+        <div class="table-container">
+            @if (Model.Any())
+            {
+                <div class="table-wrapper">
+                    <div class="table-header">Container Inquiry Details</div>
+                    <table class="table">
+                        <tbody>
+
+                            <tr>
+                                <td><strong>Container Type:</strong></td>
+                                <td>@Model.First().Type</td>
+                            </tr>
+                            <tr>
+                                <td><strong> Container Arrival Date:</strong></td>
+                                <td>@Model.First().ArrivalDate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Container No#:</strong></td>
+                                <td>@Model.First().ContainerNo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BL No#:</strong></td>
+                                <td>@Model.First().BLNo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IGM:</strong></td>
+                                <td>@Model.First().IGM</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Index No:</strong></td>
+                                <td>@Model.First().IndexNo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Destuffed:</strong></td>
+                                <td>@Model.First().Destuffed</td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="last-updated">
+                    Last Updated: @latestInvoiceDate?.ToShortDateString()
+                </div>
+            }
+            else
+            {
+                <div class="no-data-card no-data">
+                    <p>No data available.</p>
+                </div>
+            }
+        </div>
+        <div class="button-container">
+            <a href="@Url.Action("ContainerInquiry", "InquiryPortal")" class="button">Back</a>
+        </div>
+    </div>
+</body>
+</html>

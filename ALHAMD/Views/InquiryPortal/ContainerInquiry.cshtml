@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Inquiry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            background-image: url('/img/backgroundimage4.jpg');
+        }
+
+        h2 {
+            color: #fff;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 36px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: #c9302c;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 10px auto;
+            background: aliceblue;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            display: none; /* Initially hide the table */
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: center;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            width: 100%;
+        }
+
+        .search-label {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #c9302c;
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .search-input:focus {
+                border-color: #c9302c;
+                box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+            }
+
+        .search-button {
+            background-color: #c9302c;
+            color: #fff;
+            border: none;
+            /* border-radius: 0 25px 25px 0; */
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .search-button:hover {
+                background-color: #c9302c;
+            }
+
+        .search-icon {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .inquiry-icon {
+            font-size: 40px;
+            color: #c9302c;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+            .inquiry-icon:hover {
+                color: #c9302c;
+            }
+
+        .radio-group {
+            margin-bottom: 20px;
+        }
+
+            .radio-group label {
+                display: flex;
+                align-items: center;
+                padding-left: 40px;
+                font-size: 18px;
+                margin: 5px 0;
+                cursor: pointer;
+                color: #333;
+                position: relative;
+            }
+
+            .radio-group input[type="radio"] {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+                .radio-group input[type="radio"] + .custom-radio {
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 24px;
+                    height: 24px;
+                    border: 2px solid #c9302c;
+                    border-radius: 50%;
+                    background: #ffffff;
+                    transition: background 0.3s, border-color 0.3s;
+                }
+
+                .radio-group input[type="radio"]:checked + .custom-radio {
+                    background: #c9302c;
+                    border-color: #c9302c;
+                }
+
+            .radio-group .custom-radio::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #ffffff;
+                transition: background 0.3s;
+            }
+
+            .radio-group input[type="radio"]:checked + .custom-radio::after {
+                background: #ffffff;
+            }
+        .hidden {
+            display: none;
+    </style>
+</head>
+<body>
+    <div class="container overflow-hidden py-1 px-lg-0">
+        <div class="">
+            <div class="row g-5 mx-lg-0 mt-0">
+                <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s">
+                    <div class="position-relative h-100">
+                        <h4 class="text-secondary text-uppercase">
+                            <i class="fas fa-question-circle inquiry-icon" title="Submit an inquiry"></i> Inquiry Portal
+                        </h4>
+                        <h1 class="mb-1">Welcome To AICT Inquiry Portal</h1>
+                        <h5 style="color:black;" class="mb-1">Unlock all the essential Container details effortlessly—and get real-time updates and information instantly!</h5>
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+                    <br /><br /><br />
+                   <div class="search-container">
+                      
+                        
+                        <div class="form-container" >
+                            <form class="search-form" id="search-form" action="/InquiryPortal/InquiryPortalByBLNo" method="get">
+                                <label for="search-input" class="search-label">BL Inquiry</label>
+                                <div class="search-wrapper">
+                                    <input type="text" id="search-input" name="input" class="search-input" placeholder="Enter BL No">
+                                    <button type="submit" class="search-button" style="margin: 5px;">Search</button>
+                                </div>
+                                <div id="error-message" class="error-message"></div>
+
+                               
+                            </form>
+                        </div>
+                        
+                        <div class="form-container">
+                            <form class="search-form" id="search-form" action="/InquiryPortal/InquiryByContainerNo" method="get">
+                                <label for="search-input" class="search-label">Container Inquiry</label>
+                                <div class="search-wrapper">
+                                    <input type="text" id="search-input" name="containerNo" class="search-input" placeholder="Enter Container No">
+                                    <button type="submit" class="search-button" style="margin: 5px;">Search</button>
+                                </div>
+                                <div id="error-message" class="error-message"></div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMainOptions() {
+            const searchFormContainer = document.getElementById('search-form-container');
+            searchFormContainer.classList.remove('hidden');
+        }
+
+        function validateForm() {
+            const blNoInput = document.getElementById('search-input');
+            const errorMessageDiv = document.getElementById('error-message');
+            const containerTypeInput = document.getElementById('container-type');
+
+            // Clear any previous error messages
+            errorMessageDiv.textContent = '';
+
+            // Validate BL No# input
+            if (!blNoInput.value.trim()) {
+                errorMessageDiv.textContent = 'Please enter a BL No#.';
+                return false; // Prevent form submission
+            }
+
+            // Check if a radio button is selected
+            const selectedRadio = document.querySelector('input[name="CTYPE"]:checked');
+            if (!selectedRadio) {
+                errorMessageDiv.textContent = 'Please select a container type.';
+                return false; // Prevent form submission
+            }
+
+            // Set the value of the hidden field
+            containerTypeInput.value = selectedRadio.value;
+
+            // If both validations pass
+            return true; // Allow form submission
+        } 
+    </script> 
+</body>
+
+
+</html>
